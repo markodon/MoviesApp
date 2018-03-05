@@ -1,0 +1,106 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/slika_detali">
+
+        </ImageView>
+        <ImageView
+
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/favo"
+            android:layout_toLeftOf="@id/star"
+            android:layout_marginRight="40dp"
+            android:layout_below="@id/slika_detali"
+            android:background="@mipmap/favourites_empty_mdpi">
+
+        </ImageView>
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/star"
+            android:layout_below="@id/slika_detali"
+            android:background="@mipmap/rate_empty_mdpi">
+
+        </ImageView>
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/watch"
+            android:layout_below="@id/slika_detali"
+            android:layout_toRightOf="@id/star"
+            android:layout_marginLeft="40dp"
+            android:background="@mipmap/watchlist_add_mdpi">
+
+        </ImageView>
+
+
+        <TextView
+            android:layout_below="@id/favo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textGore"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textGore"
+            android:id="@+id/textReziser"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textReziser"
+            android:id="@+id/textScenario"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textScenario"
+            android:id="@+id/textSvezdi"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textSvezdi"
+            android:id="@+id/textOpis"/>
+
+        <Button
+            android:layout_marginTop="100dp"
+            android:id="@+id/cast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textOpis"
+            android:background="@color/colorAccent"
+            android:text="See full cast and crew"/>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/trailer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cast"
+            android:background="@color/colorAccent"
+            android:text="Play Trailer"/>
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
