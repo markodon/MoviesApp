@@ -33,19 +33,20 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_below="@id/slika"/>
+        android:layout_below="@id/slika"
+        />
     <TextView
         android:id="@+id/vote"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_below="@id/title"/>
     <TextView
         android:id="@+id/watchlist"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_below="@id/vote"/>

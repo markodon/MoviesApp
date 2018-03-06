@@ -64,9 +64,9 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
         final Movies filmovi = movies.get(position);
 
 
-        holder.tilte.setText(filmovi.getTitle());
-        holder.vote.setText(filmovi.getVote_average());
-        holder.watcjlist.setText(filmovi.getId() + "");
+        holder.tilte.setText("Name: " + filmovi.getTitle());
+        holder.vote.setText("Rating: " + filmovi.getVote_average());
+//        holder.watcjlist.setText(filmovi.getId() + "");
         String path = "http://image.tmdb.org/t/p/w185" + filmovi.getPoster_path();
 
         Picasso.with(context).load(path).centerInside().fit().into(holder.slika);

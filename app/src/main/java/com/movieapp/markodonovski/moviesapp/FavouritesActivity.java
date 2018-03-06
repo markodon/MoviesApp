@@ -11,7 +11,6 @@ import com.movieapp.markodonovski.moviesapp.adapter.RvAdapter;
 import com.movieapp.markodonovski.moviesapp.api.RestApi;
 import com.movieapp.markodonovski.moviesapp.klasi.Movies;
 import com.movieapp.markodonovski.moviesapp.klasi.Moviesmodel;
-import com.movieapp.markodonovski.moviesapp.other.OnRowClick;
 import com.movieapp.markodonovski.moviesapp.other.PreferencesManager;
 
 import butterknife.BindView;

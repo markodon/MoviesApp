@@ -529,12 +529,14 @@ public class DetailsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Movies> call, Throwable t) {
-                Toast.makeText(context, "padna favorit", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "some thing went wrong!", Toast.LENGTH_SHORT).show();
 
             }
         });
 
     }
+
+
 
 
 
