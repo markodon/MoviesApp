@@ -10,6 +10,7 @@ import com.movieapp.markodonovski.moviesapp.klasi.Movies;
 import com.movieapp.markodonovski.moviesapp.klasi.Moviesmodel;
 import com.movieapp.markodonovski.moviesapp.klasi.Peoplemodel;
 import com.movieapp.markodonovski.moviesapp.klasi.RatedMoviePost;
+import com.movieapp.markodonovski.moviesapp.klasi.User;
 import com.movieapp.markodonovski.moviesapp.klasi.VideoModel;
 import com.movieapp.markodonovski.moviesapp.klasi.WatchListMoviePost;
 import com.movieapp.markodonovski.moviesapp.other.CheckInternetConection;
@@ -160,6 +161,11 @@ public class RestApi {
     public Call<Moviesmodel> getUserFavorites(String account_id,String session_id)
 
     {return request().getUserFavorites(account_id,session_id);}
+
+    public Call<User> getUserAccountDetails(String sessionId) {
+
+        return request().getAccountDetails ( sessionId);
+    }
 
 
 }

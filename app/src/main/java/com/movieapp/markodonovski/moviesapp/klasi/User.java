@@ -10,7 +10,8 @@ public class User implements Serializable{
     public String name;
     public String username;
     public String password;
-    public String avatar;
+    public Avatar avatar;
+
 
 
     public User(String username, String password) {
@@ -30,7 +31,8 @@ public class User implements Serializable{
         return password;
     }
 
-    public String getAvatar() {
+    public Avatar getAvatar() {
         return avatar;
     }
+
 }

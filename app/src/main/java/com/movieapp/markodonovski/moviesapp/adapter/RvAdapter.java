@@ -15,6 +15,7 @@ import com.movieapp.markodonovski.moviesapp.DetailsActivity;
 import com.movieapp.markodonovski.moviesapp.R;
 import com.movieapp.markodonovski.moviesapp.klasi.Movies;
 import com.movieapp.markodonovski.moviesapp.klasi.Moviesmodel;
+import com.movieapp.markodonovski.moviesapp.other.OnRowClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -32,13 +33,17 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     ArrayList<Movies> movies = new ArrayList<>();
     Context context;
 
+    OnRowClickListener onRowClick;
 
 
-    public RvAdapter(Context context, Moviesmodel movieModel) {
+
+    public RvAdapter(Context context, Moviesmodel movieModel, OnRowClickListener onRowClick) {
 
         this.context = context;
 
         this.movies = movieModel.results;
+
+        this.onRowClick = onRowClick;
     }
 
     public void setItems(List<Movies> movieData) {
@@ -46,6 +51,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
         this.movies = (ArrayList<Movies>) movieData;
         notifyDataSetChanged();
     }
+
 
     @Override
     public RvAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

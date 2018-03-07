@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class RatedMoviePost implements Serializable {
 
     @SerializedName("value")
-    public int value;
+    public float value;
 
 
 

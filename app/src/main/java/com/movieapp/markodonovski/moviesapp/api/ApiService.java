@@ -88,5 +88,9 @@ public interface ApiService {
 
     Call<Moviesmodel> getUserFavorites(@Path("account_id") String account_id,@Query("session_id") String session_id);
 
+    @GET("account?" + ApiConstants.api_key)
+
+    Call<User> getAccountDetails(@Query("session_id")String session_id);
+
 
 }

@@ -13,7 +13,9 @@ import android.widget.Toast;
 import com.movieapp.markodonovski.moviesapp.R;
 import com.movieapp.markodonovski.moviesapp.adapter.RvAdapter;
 import com.movieapp.markodonovski.moviesapp.api.RestApi;
+import com.movieapp.markodonovski.moviesapp.klasi.Movies;
 import com.movieapp.markodonovski.moviesapp.klasi.Moviesmodel;
+import com.movieapp.markodonovski.moviesapp.other.OnRowClickListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,7 +62,12 @@ public class FragmentPopular extends Fragment {
                     public void onResponse(Call<Moviesmodel> call, Response<Moviesmodel> response) {
                         if (response.code() == 200) {
                             movies = response.body();
-                            adapter = new RvAdapter(getActivity(), movies);
+                            adapter = new RvAdapter(getActivity(), movies, new OnRowClickListener() {
+                                @Override
+                                public void OnRowClick(Movies movies, int position) {
+
+                                }
+                            });
                             adapter.setItems(movies.results);
                             recyclerView_p.setHasFixedSize(true);
 

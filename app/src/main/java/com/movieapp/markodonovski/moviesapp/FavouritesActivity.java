@@ -11,6 +11,7 @@ import com.movieapp.markodonovski.moviesapp.adapter.RvAdapter;
 import com.movieapp.markodonovski.moviesapp.api.RestApi;
 import com.movieapp.markodonovski.moviesapp.klasi.Movies;
 import com.movieapp.markodonovski.moviesapp.klasi.Moviesmodel;
+import com.movieapp.markodonovski.moviesapp.other.OnRowClickListener;
 import com.movieapp.markodonovski.moviesapp.other.PreferencesManager;
 
 import butterknife.BindView;
@@ -50,7 +51,12 @@ public class FavouritesActivity extends AppCompatActivity {
             public void onResponse(Call<Moviesmodel> call, Response<Moviesmodel> response) {
                 if (response.code() == 200){
                     moviesmodel = response.body();
-                    adapter = new RvAdapter(FavouritesActivity.this, moviesmodel);
+                    adapter = new RvAdapter(FavouritesActivity.this, moviesmodel, new OnRowClickListener() {
+                        @Override
+                        public void OnRowClick(Movies movies, int position) {
+
+                        }
+                    });
                     adapter.setItems(moviesmodel.results);
                     recyclerView_favo.setHasFixedSize(true);
                     recyclerView_favo.setAdapter(adapter);

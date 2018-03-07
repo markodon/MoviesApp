@@ -45,6 +45,18 @@ public class PreferencesManager {
         return getPreferences(c).getString( "UserLogin","");
     }
 
+    public static void  addUser(String Name, Context c) {
+
+
+        getPreferences(c).edit().putString("name",Name).apply();
+
+    }
+
+    public static String getUser( Context c) {
+
+        return getPreferences(c).getString( "name","");
+    }
+
     public static void addSessionID (String Email, Context c)  {
         SharedPreferences.Editor prefsEditor;
         prefsEditor = getPreferences(c).edit();

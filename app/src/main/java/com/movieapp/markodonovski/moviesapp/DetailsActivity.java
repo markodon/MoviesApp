@@ -18,6 +18,7 @@ import com.movieapp.markodonovski.moviesapp.klasi.Credits;
 import com.movieapp.markodonovski.moviesapp.klasi.Crew;
 import com.movieapp.markodonovski.moviesapp.klasi.FavouritesMoviePost;
 import com.movieapp.markodonovski.moviesapp.klasi.Movies;
+import com.movieapp.markodonovski.moviesapp.klasi.RatedList;
 import com.movieapp.markodonovski.moviesapp.klasi.RatedMoviePost;
 import com.movieapp.markodonovski.moviesapp.klasi.Video;
 import com.movieapp.markodonovski.moviesapp.klasi.VideoModel;
@@ -44,6 +45,7 @@ public class DetailsActivity extends AppCompatActivity {
     Cast cast;
     Video video;
     VideoModel videoModel;
+    RatedList ratedList;
 
 
 
@@ -94,7 +96,7 @@ public class DetailsActivity extends AppCompatActivity {
 
             Getmovie();
 
-            EdenFavorit();
+//            EdenFavorit();
         }
     }
 
@@ -166,6 +168,8 @@ public class DetailsActivity extends AppCompatActivity {
                     ArrayList<Cast> stars = new ArrayList<>();
 
                     model = response.body();
+                    EdenFavorit();
+
 
 
 
@@ -422,25 +426,30 @@ public class DetailsActivity extends AppCompatActivity {
     }
     public void addRated(){
 
-        RatedMoviePost rated = new RatedMoviePost();
+//        final RatedMoviePost rated = new RatedMoviePost();
 
         String sessionid = PreferencesManager.getSessionID(this);
 
+        float rate = 5;
+        final RatedMoviePost rated = new RatedMoviePost();
+        rated.value = rate;
 
+        int movieID = model.id;
 
 
         RestApi api2 = new RestApi(this);
 
-        rated.value = 8;
 
 
-        Call<Movies> call = api2.addRating(pozicija, "json/application", sessionid,rated);
+        Call<Movies> call = api2.addRating(movieID, "json/application", sessionid,rated);
         call.enqueue(new Callback<Movies>() {
             @Override
             public void onResponse(Call<Movies> call, Response<Movies> response) {
 
                 if (response.code() == 200){
                     model = response.body();
+                    ratedList.ratedMovies.add(rated);
+
                     Toast.makeText(DetailsActivity.this, "yes", Toast.LENGTH_SHORT).show();
                 }else if (response.code() == 401) {
                     Toast.makeText(DetailsActivity.this, "please login", Toast.LENGTH_LONG).show();
@@ -518,7 +527,13 @@ public class DetailsActivity extends AppCompatActivity {
                     model = response.body();
                     if (model.favorite==true){
                         Picasso.with(context).load(R.mipmap.favourites_full_mdpi).fit().centerCrop().into(favo);
-                    } if (model.watchlist==true){
+                    }
+                    else {
+                        Picasso.with(context).load(R.mipmap.favourites_empty_mdpi).fit().centerCrop().into(favo);
+
+                    }
+
+                    if (model.watchlist==true){
                         Picasso.with(context).load(R.mipmap.watchlist_remove_mdpi).fit().centerCrop().into(watch);
                     }
                 }else if (response.code()==401){
